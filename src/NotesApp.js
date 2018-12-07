@@ -9,16 +9,17 @@ class NotesApp extends Component {
         super(props);
         this.state = {
             currentNoteId: 1003,
+            searchTerm: '',
             notes: [
                 {
                     id: 1001,
                     title: 'the la la note',
-                    content: 'la la la'
+                    content: 'la la la',
                 },
                 {
                     id: 1002,
                     title: 'the wa wa note',
-                    content: 'wa wa wa'
+                    content: 'wa wa wa',                    
                 },
                 {
                     id: 1004,
@@ -31,9 +32,13 @@ class NotesApp extends Component {
     render() {
         return (
           <div className="notes-app">
-            <SearchBar />
+            <SearchBar
+                searchTerm={this.state.searchTerm}
+                handleInput={this._setSearchTerm}
+            />
             <NotesList 
-                notes={this.state.notes.map(note => note.title)}
+                notes={this.state.notes}
+                handleClick={this._setCurrentNoteId}
             />
             <EditorWindow 
                 content={this._getById(this.state.currentNoteId).content}
@@ -41,6 +46,20 @@ class NotesApp extends Component {
           </div>
 
         );
+    }
+
+    _setSearchTerm = (term) => {
+        console.log(`they said: ${term}`);
+        this.setState({
+            searchTerm: term
+        });
+    }
+
+    _setCurrentNoteId = (noteId) => {
+        console.log(`The child said this was the id: ${noteId}`);
+        this.setState({
+            currentNoteId: noteId
+        });
     }
 
     _getById = (idToFind) => {
