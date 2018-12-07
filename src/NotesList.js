@@ -1,7 +1,7 @@
 import React from 'react';
 
 const NotesList = (props) => {
-    console.log(props.notes);
+    // console.log(props.notes);
     return (
         <ul className="notes-list list-group">
           {
