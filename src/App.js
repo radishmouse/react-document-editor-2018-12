@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import NotesList from './NotesList';
 import EditorWindow from './EditorWindow';
 
 class App extends Component {
@@ -12,13 +13,8 @@ class App extends Component {
           <div className="search-bar">
             <input value="it" />
           </div>
-          <div className="notes-list">
-            <ul>
-              <li><a>note #1</a></li>
-              <li><a>note #2</a></li>
-              <li><a>note #3</a></li>
-            </ul>
-          </div>
+
+          <NotesList />
           <EditorWindow />
         </div>
       </div>
