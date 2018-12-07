@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import EditorWindow from './EditorWindow';
+
 class App extends Component {
   render() {
     return (
@@ -17,9 +19,7 @@ class App extends Component {
               <li><a>note #3</a></li>
             </ul>
           </div>
-          <div className="editor-window">
-            it was the best of times, it was the pretty okish of times.
-          </div>
+          <EditorWindow />
         </div>
       </div>
     );
