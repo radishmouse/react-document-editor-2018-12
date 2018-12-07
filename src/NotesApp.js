@@ -37,7 +37,7 @@ class NotesApp extends Component {
                 handleInput={this._setSearchTerm}
             />
             <NotesList 
-                notes={this.state.notes}
+                notes={this._searchNotes(this.state.searchTerm)}
                 handleClick={this._setCurrentNoteId}
             />
             <EditorWindow 
@@ -79,6 +79,20 @@ class NotesApp extends Component {
             }
 
         */
+    }
+
+    _searchNotes = (term) => {
+        // filter out any notes
+        // that do not include the term
+        // in either the title or content
+        const filteredNotes = this.state.notes.filter(note => {
+            const termIsInTitle = note.title.includes(term);
+            const termIsInContent = note.content.includes(term);
+
+            return termIsInTitle || termIsInContent;
+        });
+
+        return filteredNotes;
     }
 }
 
