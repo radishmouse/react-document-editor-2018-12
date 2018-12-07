@@ -8,7 +8,7 @@ class NotesApp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentNoteId: 1001,
+            currentNoteId: 1003,
             notes: [
                 {
                     id: 1001,
@@ -48,7 +48,18 @@ class NotesApp extends Component {
         const theOne = this.state.notes.find(note => {
             return note.id === idToFind
         });
-        return theOne;
+        return theOne || { content: ''};
+        /*
+            if (theOne) {
+                return theOne;
+            } else {
+                const dummyObject = {
+                    content: ''
+                };
+                return dummyObject;
+            }
+
+        */
     }
 }
 
