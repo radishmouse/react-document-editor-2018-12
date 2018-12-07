@@ -8,6 +8,7 @@ class NotesApp extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            currentNoteIndex: 2,
             notes: [
                 {
                     title: 'the la la note',
@@ -32,9 +33,7 @@ class NotesApp extends Component {
                 notes={this.state.notes.map(note => note.title)}
             />
             <EditorWindow 
-                content={
-                    'aw yiss. it was the best of times, it was the pretty ok-ish of times.'
-                }
+                content={this.state.notes[this.state.currentNoteIndex].content}
             />
           </div>
 
